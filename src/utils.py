@@ -38,3 +38,19 @@ def display_images(data, nrows, ncols, titles=None):
         if titles:
             plt.title(titles[i])
         plt.imshow(data[i].squeeze(), cmap='gray')
+
+def get_data():
+    ins = torch.Tensor(np.float32(np.load(default_dir+'MNIST_data.npy'))) / 255
+    labels = (torch.Tensor(np.float32(np.load(default_dir+'MNIST_labels.npy')))
+        .reshape(-1, 1))
+    data = torch.hstack([ins, labels])
+    train = data[:50000]
+    val = data[50000:55000]
+    test = data[55000:]
+    return train, val, test
+
+def convert_to_dataloader(train, val, test, config):
+    a = DataLoader(train, batch_size=config['batch_size'], shuffle=True)
+    b = DataLoader(val, batch_size=val.shape[0], shuffle=True)
+    c = DataLoader(test, batch_size=test.shape[0],shuffle=True)
+    return a,b,c
