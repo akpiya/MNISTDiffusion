@@ -1,7 +1,7 @@
 
 # Diffusion Model on MNIST Dataset
 
-Implementation of a diffusion generative model as detailed in [Denoising Diffusion Probalistic Models](https://arxiv.org/pdf/2006.11239).
+Implementation of a diffusion generative model as detailed in [Denoising Diffusion Probalistic Models](https://arxiv.org/pdf/2006.11239) including a write-up of the mathematical derivations of the model. This can be found in the `theory` directory.
 
 ## Generated Samples
 
